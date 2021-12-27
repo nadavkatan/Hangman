@@ -88,7 +88,7 @@ function checkLetter(e) {
         
         // Once the user makes 6 mistakes, he looses. All letter button become unclickable, and he can only restart the game. 
         if (wrongAnswers === 6) {
-            question.textContent = "You have made 6 mistakes. You lost.";
+            question.textContent = "You have made 6 mistakes. You lost. Press 'Restart' and try again!";
             for (let j = 0; j < letterBtns.length; j++) {
                 letterBtns[j].removeEventListener('click', checkLetter);
                 letterBtns[j].style.cursor = 'not-allowed';
@@ -199,6 +199,7 @@ restartGameBtn.addEventListener('click', restartGame);
 function restartGame() {
     wrongAnswersNumber.textContent = 0;
     wrongAnswers = 0;
+    question.textContent = "Guess the programming language!"
     for (let i = 0; i < letters.length; i++) {
         letters[i].remove();
 
