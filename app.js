@@ -138,7 +138,7 @@ function createQuestions(word) {
 
 createQuestions(words[counter]);
 
-nextLevelBtn.classList.add('fs-4');
+nextLevelBtn.classList.add('fs-lg-4');
 
 //Moveing to the next level is possible only if the user won 
 function activateNextLevelBtn(){
@@ -191,7 +191,7 @@ function removeImages() {
 
 
 restartGameBtn.textContent = "Restart Game";
-restartGameBtn.classList.add('fs-lg-4', 'btn', 'btn-info', 'mt-4');
+restartGameBtn.classList.add('fs-lg-4', 'btn', 'btn-info', 'mt-4', 'restart-button');
 nextLevelContainer.appendChild(restartGameBtn);
 restartGameBtn.addEventListener('click', restartGame);
 
