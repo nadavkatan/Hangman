@@ -191,7 +191,7 @@ function removeImages() {
 
 
 restartGameBtn.textContent = "Restart Game";
-restartGameBtn.classList.add('fs-4', 'btn', 'btn-info', 'mt-4');
+restartGameBtn.classList.add('fs-lg-4', 'btn', 'btn-info', 'mt-4');
 nextLevelContainer.appendChild(restartGameBtn);
 restartGameBtn.addEventListener('click', restartGame);
 
