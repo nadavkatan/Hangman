@@ -2,13 +2,14 @@ const btnContainer = document.querySelector('.btn-container');
 const imgContainer = document.querySelector('.img-container');
 const nextLevelContainer = document.querySelector('.next-level-container');
 const questionContainer = document.querySelector('.question-container');
+const currentLevel = document.querySelector('.current-level');
 const question = document.querySelector('.question');
 const wrongAnswersNumber = document.querySelector('.wrong-answers-number');
 const nextLevelBtn = document.querySelector('.next-level');
 const restartGameBtn = document.createElement('button');
 let wrongAnswers = 0;
 let counter = 0;
-let level = 0;
+let level = 1;
 let letterBtns = [];
 let letters = [];
 let imgCounter = 0;
@@ -18,7 +19,7 @@ let hasWon = false;
 
 
 btnContainer.style.cssText = 'display: flex; justify-content: center; align-items: center; flex-wrap: wrap; padding: 2em;'
-
+currentLevel.textContent = `Level ${level}`;
 
 //Creating the hagman images and giving an id to each element using a counter (imgCounter)
 function createImages() {
@@ -99,6 +100,7 @@ function checkLetter(e) {
 }
 
 // Once the user has found of the letters of the hidden words (iterating thourgh the letters array and there are no empty strings), he has won.
+// Once the user has found of the letters of the hidden words (iterating thourgh the letters array and there are no empty strings), he has won.
 function checkForWin() {
     let emptyStringsCounter = 0;
     for (let i = 0; i < letters.length; i++) {
@@ -107,16 +109,23 @@ function checkForWin() {
         }
     }
     if (emptyStringsCounter === 0) {
-        question.textContent = "You have found the word! You win!";
-        nextLevelBtn.classList.add('animate');
-        for (let j = 0; j < letterBtns.length; j++) {
-            letterBtns[j].removeEventListener('click', checkLetter);
-            letterBtns[j].style.cursor = 'not-allowed';
+
+        if(words.length == level){
+            question.textContent = 'Congradulations! You have found all the words! You won the game!';
+
+        }else{
+            question.textContent = "You have found the word! You win!";
+            nextLevelBtn.classList.add('animate');
+            level++
+            for (let j = 0; j < letterBtns.length; j++) {
+                letterBtns[j].removeEventListener('click', checkLetter);
+                letterBtns[j].style.cursor = 'not-allowed';
+            }
+            
+            //Only if the user has won he can move on to the next level
+            hasWon = true;
+            activateNextLevelBtn();
         }
-        
-        //Only if the user has won he can move on to the next level
-        hasWon = true;
-        activateNextLevelBtn();
     }
 }
 
