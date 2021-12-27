@@ -75,3 +75,22 @@ font-family: 'Amatic SC', cursive;
 
     }
 }
+
+
+@media all and (max-width: 370px){
+    .next-level-container{
+        margin-bottom: -4em;
+    }
+
+    .next-level{
+        font-size: 0.5em;
+    }
+
+    .restart-button{
+        font-size: 0.5em;
+    }
+
+    .wrong-guesses{
+        font-size: 1em;
+    }
+}
