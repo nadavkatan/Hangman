@@ -84,7 +84,7 @@ font-family: 'Amatic SC', cursive;
 }
 
 
-@media all and (max-width: 370px){
+@media all and (max-width: 415px){
     .next-level-container{
         margin-bottom: -4em;
     }
